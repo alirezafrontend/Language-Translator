@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translator</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body>
+
+    <div
+        class="container_trans w-full min-h-screen flex flex-wrap md:flex-nowrap justify-center items-center gap-[15px] bg-[#e7e7e7]">
+        <div class="left w-full md:w-[35%] h-[480px]">
+            <div class="from_language h-[400px] rounded-[12px] py-[20px] px-[20px] bg-[#fff]">
+                <div class="lang_from flex items-center justify-center w-full h-[10%]">
+                    <p class="w-[15%] text-[#9a9a9a]">From :</p>
+                    <div
+                        class="flex items-center gap-[10px] w-[85%] h-full py-[5px] px-[20px] rounded-[20px] bg-[#e7e7e7]">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                            </svg>
+                        </span>
+                        <h3>English</h3>
+                    </div>
+                </div>
+                <div class="text_input w-full h-[90%] my-[10px]">
+                    <textarea id="input_text"
+                        class="w-full min-h-[90%] py-[20px] px-[10px] resize-none border-none outline-none" cols="30"
+                        row="10" placeholder="Enter your text here"></textarea>
+                    <div class="chars w-full h-[5%] flex justify-between items-center px-[15px]">
+                        <div class="w-[20px] sound cursor-pointer">
+                            <span>
+                                <svg class="icon_sound w-[20px] hidden transition-all duration-200 ease-in-out cursor-pointer"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                                </svg>
+                                <audio class="audio">
+                                    <source type="audio/mp3">
+                                </audio>
+                            </span>
+                        </div>
+                        <div class="chars w-1/2 flex justify-end items-center text-[12px] text-[#9a9a9ab4]">
+                            <span id="input_chars">0</span> / 500
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="example  flex-col gap-[5px] justify-center w-full h-[80px] my-[10px] rounded-[12px] bg-[#fff] border-l-4 border-amber-400 px-[10px] hidden">
+                <h4 class="title_example text-[18px] font-semibold"></h4>
+                <div class="text_example text-[#9a9a9a] line-clamp-1"></div>
+            </div>
+        </div>
+        <div class="right w-full md:w-[35%] h-[480px]">
+            <div class="to_language h-[400px] rounded-[12px] py-[20px] px-[20px] bg-[#fff]">
+                <div class="lang_to flex items-center justify-center w-full h-[10%]">
+                    <p class="w-[15%] pl-[20px] text-[#9a9a9a]">to :</p>
+                    <div
+                        class="flex items-center gap-[10px] w-[85%] h-full py-[5px] px-[20px] rounded-[20px] bg-[#e7e7e7]">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                            </svg>
+                        </span>
+                        <h3>Persian (فارسی)</h3>
+                    </div>
+                </div>
+                <div class="text_output w-full h-[90%] my-[10px] py-[20px] px-[10px] flex justify-end"></div>
+            </div>
+            <div
+                class="synonyms flex-col gap-[5px] justify-center w-full h-[80px] my-[10px] rounded-[12px] bg-[#fff] border-l-4 border-amber-400 px-[10px] hidden">
+                <h4 class="title_synonyms text-[18px] font-semibold"></h4>
+                <div class="text_synonyms text-[#9a9a9a] line-clamp-1"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="footer-me hidden xl:block absolute left-0 top-[20px] w-[180px] h-auto overflow-hidden group">
+        <img class="w-[120px] h-[120px] mx-auto rounded-[50%] border-[3px] border-amber-400 cursor-pointer"
+            src="img/me.jpg" alt="">
+        <div class="line w-[80%] h-[2px] rounded-[2px] mx-auto"></div>
+        <div
+            class="social w-full h-0 flex flex-col gap-[15px] justify-center items-center mt-[5px] overflow-hidden transition-all duration-300 group-hover:h-[100px]">
+            <a href="https://www.instagram.com/alireza_hasanpour_frontend">
+                <p>Instagram</p>
+            </a>
+            <a href="https://www.linkedin.com/in/alireza-hasanpour-frontend/">
+                <p>Linkedin</p>
+            </a>
+            <a href="https://github.com/alirezafrontend/">
+                <p>Github</p>
+            </a>
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
